@@ -4,11 +4,14 @@ const supabaseUrl = 'https://akzmofevgcjpjcwmkjld.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFrem1vZmV2Z2NqcGpjd21ramxkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTI4NTA2MzcsImV4cCI6MjAyODQyNjYzN30.2my4atOnBxXTukJohfomcQSphSVmcZj7Jp1FQRhWuNA';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-async function fetchData(searchQuery) {
+const dname = document.getElementById("dname");
+const lnum = document.getElementById("lnum");
+
+async function fetchData(lnum) {
     const { data, error } = await supabase
-        .from('Vehicles')
+        .from('People')
         .select("*")
-        .or(`VehicleID.ilike.%${searchQuery}%`);
+        .or(`LicenseNumber.ilike.%${lnum}%`);
 
     if (error) {
         console.error('Error Fetching Data:', error.message);

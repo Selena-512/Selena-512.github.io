@@ -1,12 +1,72 @@
-
-.nav {
-    display: flex;
+body {
+    background-color:rgb(30, 30, 73);
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+    height: 100vh;
 }
 
-.h1 {
-    color:aquamarine;
+header {
+    grid-area: header;
+    background-color: rgb(209, 231, 239);
+    align-self: center;
+    border: 5px solid white;
+    padding: 7px;
+    margin: 2px;
+}
+
+.navbar ul{
+    display: flex; 
+    justify-content: space-around;
+    align-content: center;
+    list-style-type: none;
+}
+
+.navbar a {
+    text-decoration: none; 
+    color: navy;
+    padding: 10px; 
+}
+
+main {
+    grid-area: main;
+    background-color: rgb(209, 231, 239);;
+    border: 5px solid white;
+    padding: 10px;
+    margin: 2px;
+}
+
+aside {
+    grid-area: sidebar;
+    background-color: rgb(209, 231, 239);;
+    border: 5px solid white;
+    padding: 5px;
+    margin: 2px;
+}
+
+footer {
+    grid-area: footer;
+    background-color: rgb(209, 231, 239);
+    border: 5px solid white;
+    padding: 5px;
+    margin: 2px;
+}
+
+h1 {
+    color: navy;
     font-size: 5em;
+    text-align: center;
 }
-.p {
+
+p {
     color: black;
+}
+
+form {
+    padding: 2px;
+    margin: 2px;
 }
