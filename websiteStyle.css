@@ -2,3 +2,11 @@
 .nav {
     display: flex;
 }
+
+.h1 {
+    color:aquamarine;
+    font-size: 5em;
+}
+.p {
+    color: black;
+}
