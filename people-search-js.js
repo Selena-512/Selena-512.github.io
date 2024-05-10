@@ -17,8 +17,8 @@ btn1.addEventListener("click", submit);
 //license number input
 async function fetchData(lnumInput) {
     const { data, error} = await supabase.from('People').select();
-
+    console.log('fetched data:',data);
 }
 
-
+fetchData();
 
