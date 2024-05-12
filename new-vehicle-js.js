@@ -59,10 +59,10 @@ async function addVehicle(){
             });
             if(error2){
                 msgDiv.innerHTML += "Error at add new vehicle...<br />plz retry";
-                clearForms();
             }
             else{
-                msgDiv.innerHTML += "[" + regoInput.value +"] Vehicle added successfully"
+                msgDiv.innerHTML += "[" + regoInput.value +"] Vehicle added successfully";
+                clearForms();
             }
         }
         else{   // owner name is new, not in record
