@@ -25,6 +25,9 @@ addVehicleBtn.addEventListener("click", addVehicle);
 const addOwnerBtn = document.getElementById("addowner");
 //addOwnerBtn.addEventListener("click", submit);
 
+// hide add owner form at page initialise
+setFormHidden("newOwnerForm");
+
 async function addVehicle(){
     clearBox("message");
     
@@ -62,6 +65,8 @@ async function addVehicle(){
             }
         }
         else{   // owner name is new, not in record
+            setFormHidden("newVehicleForm");
+            setFormShow("newPersonForm");
             msgDiv.innerHTML += "[" + ownerInput.value + "] owner is not in database <br />" +
                 "need fill in New Owner Information";
         }
@@ -70,4 +75,12 @@ async function addVehicle(){
 
 function clearBox(elementID){
     document.getElementById(elementID).innerHTML = "";
+}
+
+async function setFormHidden(id){
+    document.getElementById(id).style.display = "none";
+}
+
+async function setFormShow(id){
+    document.getElementById(id).style.display = "block";
 }
