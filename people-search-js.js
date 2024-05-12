@@ -32,19 +32,21 @@ async function searchLicenseNumber(license) {
         .select('*')
         .eq('LicenseNumber', license);
     console.log('fetched data:', data);
+    // condition check for showing the correct response message
     if(data.length > 0){
         msgDiv.innerHTML += "license number [" + license + "] search success";
     }
     else{
         msgDiv.innerHTML += "license number [" + license + "] No result found";
     }
+    // loop to create each searched and founded people as a block
     data.forEach(function(p){
         people(p);
     });
     resultsDiv.style.border ="1px dashed black";
 }
 
-// create div element to store the searched result and append to results div
+// create div element to store the searched person details and append to results div
 function people(p) {
     const newDiv  = document.createElement('div');
     newDiv.setAttribute('PersonID', p.PersonID);
