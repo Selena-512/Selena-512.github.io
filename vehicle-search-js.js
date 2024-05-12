@@ -31,7 +31,7 @@ async function searchRegistrationNumber(regNum) {
     const { data, error} = await supabase
         .from('Vehicle')
         .select('*')
-        .eq('Vehicle', regNum);
+        .eq('VehicleID', regNum);
     console.log('fetched data:', data);
     // condition check for showing the correct response message
     if(data.length > 0){
