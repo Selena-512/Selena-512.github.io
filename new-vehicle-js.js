@@ -43,7 +43,7 @@ async function addVehicle(){
             Colour: colourInput.value,
             OwnerID: ownerInput.value
         });
-        if(error2){
+        if(error){
             msgDiv.innerHTML += "Error at add new vehicle...<br />plz retry";
         }
         else{
