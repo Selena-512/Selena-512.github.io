@@ -15,11 +15,13 @@ const submitBtn = document.getElementById("submit");
 submitBtn.addEventListener("click", fetchData);
 
 //license number input
-async function fetchData() {
+async function fetchData(licenseInput) {
     const { data, error} = await supabase
         .from('People')
-        .select('*');
+        .select('*')
+        .eq('LicenseNumber', licenseInput.value);
     console.log('fetched data:', data);
+    msgDiv.innerHTML += "license number [" + licenseInput.value + "] search success";
     data.forEach(function(p){
         people(p);
     });
