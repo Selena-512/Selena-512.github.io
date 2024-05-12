@@ -39,14 +39,14 @@ async function searchDriverName(name){
     const {data, error} = await supabase
         .from('People')
         .select('*')
-        .eq('LicenseNumber', name);
+        .eq('Name', name);
     console.log('Fetched data:', data);
     // condition check for showing the correct response message
     if(data.length > 0){
-        msgDiv.innerHTML += "driver name [" + nameInput.value + "] Search successful";
+        msgDiv.innerHTML += "driver name [" + name + "] Search successful";
     }
     else{
-        msgDiv.innerHTML += "driver name [" + nameInput.value + "] No result found";
+        msgDiv.innerHTML += "driver name [" + name + "] No result found";
     }
     // loop to create each searched and founded people as a block
     data.forEach(function(p){
