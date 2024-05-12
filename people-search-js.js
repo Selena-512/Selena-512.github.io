@@ -36,6 +36,9 @@ function people(p) {
         "dob: " + p.DOB + "<br />" + 
         "licensenumber: " + p.LicenseNumber + "<br />" +
         "expirydate: " + p.ExpiryDate;
+        newDiv.style.padding = "10px";
+        newDiv.style.margin = "10px";
+        newDiv.style.border ="1px solid black";
     resultsDiv.appendChild(newDiv)
 }
 
