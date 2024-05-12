@@ -19,6 +19,23 @@ async function fetchData() {
     const { data, error} = await supabase
         .from('People')
         .select('*');
-    console.log('fetched data:',data);
+    console.log('fetched data:', data);
+    data.forEach(function(p){
+        people(p);
+    });
+}
+
+// create div for a searched result
+function people(p) {
+    const newDiv  = document.createElement('div');
+    newDiv.setAttribute('PersonID', p.PersonID);
+    newDiv.innerHTML = 
+        "personid: " + p.PersonID + 
+        "name: " + p.Name + 
+        "address: " + p.Address +
+        "dob: " + p.DOB + 
+        "licensenumber: " + p.LicenseNumber +
+        "expirydate: " + p.ExpiryDate;
+    resultsDiv.appendChild(newDiv)
 }
 
