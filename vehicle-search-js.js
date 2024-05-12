@@ -29,7 +29,9 @@ async function submit(){
 // search vehicle by input registration number 
 async function searchRegistrationNumber(regNum) {
     const { data, error} = await supabase
-        .from('Vehicle')
+        // created a view in supabase that run sql with vehicle table left join people table
+        // have absolute 0 idea how to do left join in javascript here
+        .from('vehicles_view')
         .select('*')
         .eq('VehicleID', regNum);
     console.log('fetched data:', data);
