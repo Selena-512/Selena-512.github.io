@@ -16,13 +16,43 @@ submitBtn.addEventListener("click", submit);
 
 // submit button function
 async function submit(){
+    clearBox("message");
+    clearBox("results");
+
     if(licenseInput.value == ""){
         msgDiv.innerHTML += "Error, please first enter a driving license number.";
     }
     else{
         searchLicenseNumber(licenseInput.value);
     }
+    if(nameInput.value == ""){
+        msgDiv.innerHTML += "Error, please first enter a driver name.";
+    }
+    else{
+        searchLicenseNumber(nameInput.value);
+    }
     
+}
+
+// search people by input Driver name
+async function searchDriverName(name){
+    const {data, error} = await supabase
+        .from('People')
+        .select('*')
+        .eq('LicenseNumber', name);
+    console.log('Fetched data:', data);
+    // condition check for showing the correct response message
+    if(data.length > 0){
+        msgDiv.innerHTML += "driver name [" + nameInput.value + "] Search successful";
+    }
+    else{
+        msgDiv.innerHTML += "driver name [" + nameInput.value + "] No result found";
+    }
+    // loop to create each searched and founded people as a block
+    data.forEach(function(p){
+        people(p);
+    });
+    resultsDiv.style.border ="1px dashed black";
 }
 
 // search people by input license number 
@@ -63,3 +93,6 @@ function people(p) {
     resultsDiv.appendChild(newDiv)
 }
 
+function clearBox(elementID){
+    document.getElementById(elementID).innerHTML = "";
+}
