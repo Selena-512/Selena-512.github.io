@@ -19,19 +19,19 @@ async function submit(){
     clearBox("message");
     clearBox("results");
 
-    if(licenseInput.value == ""){
-        msgDiv.innerHTML += "Error, please first enter a driving license number.";
+    if((nameInput.value == "") && (licenseInput.value == "")){
+        msgDiv.innerHTML += "Error, please first enter a driver name or a driving license number."
     }
-    else{
+    else if((nameInput.value != "") && (licenseInput.value != "")){
+        msgDiv.innerHTML += "Error, both driver name and driving license number text input field are filled.<br />" +
+            "Please have 1 text field empty first before submit search."
+    }
+    else if((nameInput.value != "") && (licenseInput.value == "")){
+        searchDriverName(nameInput.value);
+    }
+    else if((nameInput.value == "") && (licenseInput.value != "")){
         searchLicenseNumber(licenseInput.value);
     }
-    if(nameInput.value == ""){
-        msgDiv.innerHTML += "Error, please first enter a driver name.";
-    }
-    else{
-        searchLicenseNumber(nameInput.value);
-    }
-    
 }
 
 // search people by input Driver name
