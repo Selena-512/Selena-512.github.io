@@ -12,16 +12,21 @@ const msgDiv = document.getElementById("message");
 const resultsDiv = document.getElementById("results");
 
 const submitBtn = document.getElementById("submit");
-submitBtn.addEventListener("click", fetchData);
+submitBtn.addEventListener("click", submit);
+
+async function submit(){
+    searchLicenseNumber(licenseInput.value)
+}
+
 
 //license number input
-async function fetchData(licenseInput) {
+async function searchLicenseNumber(license) {
     const { data, error} = await supabase
         .from('People')
         .select('*')
-        .eq('LicenseNumber', licenseInput.value);
+        .eq('LicenseNumber', license);
     console.log('fetched data:', data);
-    msgDiv.innerHTML += "license number [" + licenseInput.value + "] search success";
+    msgDiv.innerHTML += "license number [" + license + "] search success";
     data.forEach(function(p){
         people(p);
     });
