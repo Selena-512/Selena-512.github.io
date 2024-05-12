@@ -19,7 +19,39 @@
   </header>
 
   <main>
-    <p> akjshdbgsdfklgjbghjrsg</p>
+    <div>
+      <form class="newVehicleForm" id="newVehicleForm">
+        <label><h3>New Vehicle Details:</h3></label>
+        <label for="rego">Vehicle ID:</label>
+        <input type="text" id="rego" name="rego"><br />
+        <label for="make">Vehicle Manufacturer:</label>
+        <input type="text" id="make" name="make"><br />
+        <label for="model">Vehicle Model:</label>
+        <input type="text" id="model" name="model"><br />
+        <label for="colour">Vehicle Colour:</label>
+        <input type="text" id="colour" name="colour"><br />
+        <label for="owner">Vehicle Owner:</label>
+        <input type="text" id="owner" name="owner"><br /><br />
+        <button type="button" id="addvehicle">Add vehicle</button>
+      </form>          
+      <form class="newPersonForm" id="newPersonForm">
+        <label><h3>New Owner Information:</h3></label>
+        <label for="personid">Person ID:</label>
+        <input type="text" id="personid" name="personid"><br />
+        <label for="name">Owner Name:</label>
+        <input type="text" id="name" name="name"><br />
+        <label for="address">Owner Address:</label>
+        <input type="text" id="address" name="address"><br />
+        <label for="dob">Owner Date of Birth:</label>
+        <input type="text" id="dob" name="dob"><br />
+        <label for="license">Owner's License Number:</label>
+        <input type="text" id="license" name="license"><br />
+        <label for="expire">Owner's License Expiring Date:</label>
+        <input type="text" id="expire" name="expire"><br /><br />
+        <button type="button" id="addowner">Add owner</button>
+      </form>
+    </div>
+    <div id="message"></div>
   </main>
 
   <aside>
