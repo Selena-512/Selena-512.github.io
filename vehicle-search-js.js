@@ -18,6 +18,7 @@ async function submit(){
     clearBox("message");
     clearBox("results");
 
+    // empty input check
     if(regoInput.value == ""){
         msgDiv.innerHTML += "Error, please first enter a vehicle registration (plate) number."
     }

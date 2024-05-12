@@ -23,7 +23,7 @@ const addVehicleBtn = document.getElementById("addvehicle");
 addVehicleBtn.addEventListener("click", addVehicle);
 
 const addOwnerBtn = document.getElementById("addowner");
-//addOwnerBtn.addEventListener("click", submit);
+addOwnerBtn.addEventListener("click", addOwner);
 
 // hide add owner form at page initialise
 setFormHidden("newOwnerForm");
@@ -66,10 +66,38 @@ async function addVehicle(){
         }
         else{   // owner name is new, not in record
             setFormHidden("newVehicleForm");
-            setFormShow("newPersonForm");
+            setFormShow("newOwnerForm");
             msgDiv.innerHTML += "[" + ownerInput.value + "] owner is not in database <br />" +
                 "need fill in New Owner Information";
         }
+    }
+}
+
+async function addOwner(){
+    clearBox("message");
+
+    if(personidInput.value=="" || nameInput.value=="" || addressInput.value=="" || dobInput.value=="" || licenseInput.value=="" || expireInput.value==""){
+        msgDiv.innerHTML += "Error, one or more fields of new owner information are missing";
+    }
+    else{
+        const { error3 } = await supabase
+            .from('People')
+            .insert({ 
+                PersonID: personidInput.value,
+                Name: nameInput.value,
+                Address: addressInput.value,
+                DOB: dobInput.value,
+                LicenseNumber: licenseInput.value,
+                ExpiryDate: expireInput.value
+            });
+        if(error3){
+            msgDiv.innerHTML += "Error at add new owner...<br />plz retry from beginning";
+        }
+        else{
+            msgDiv.innerHTML += "[" + nameInput.value +"] owner info added successfully";
+        }
+        setFormHidden("newOwnerForm");
+        setFormShow("newVehicleForm");
     }
 }
 

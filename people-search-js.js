@@ -19,6 +19,7 @@ async function submit(){
     clearBox("message");
     clearBox("results");
 
+    // input empty or both input filled check
     if((nameInput.value == "") && (licenseInput.value == "")){
         msgDiv.innerHTML += "Error, please first enter a driver name or a driving license number."
     }
