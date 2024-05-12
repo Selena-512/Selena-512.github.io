@@ -59,6 +59,7 @@ async function addVehicle(){
             });
             if(error2){
                 msgDiv.innerHTML += "Error at add new vehicle...<br />plz retry";
+                clearForms();
             }
             else{
                 msgDiv.innerHTML += "[" + regoInput.value +"] Vehicle added successfully"
@@ -69,6 +70,7 @@ async function addVehicle(){
             setFormShow("newOwnerForm");
             msgDiv.innerHTML += "[" + ownerInput.value + "] owner is not in database <br />" +
                 "need fill in New Owner Information";
+            nameInput.value = ownerInput.value;
         }
     }
 }
@@ -95,7 +97,23 @@ async function addOwner(){
         }
         else{
             msgDiv.innerHTML += "[" + nameInput.value +"] owner info added successfully";
+            const { error4 } = await supabase
+                .from('Vehicles')
+                .insert({ 
+                    VehicleID: regoInput.value,
+                    Make: makeInput.value,
+                    Model: modelInput.value,
+                    Colour: colourInput.value,
+                    OwnerID: personidInput.value
+                });
+            if(error4){
+                msgDiv.innerHTML += "Error at add new vehicle...<br />plz retry";
+            }
+            else{
+                msgDiv.innerHTML += "<br />[" + regoInput.value +"] Vehicle added successfully"
+            }
         }
+        clearForms();
         setFormHidden("newOwnerForm");
         setFormShow("newVehicleForm");
     }
@@ -111,4 +129,18 @@ async function setFormHidden(id){
 
 async function setFormShow(id){
     document.getElementById(id).style.display = "block";
+}
+
+function clearForms(){
+    regoInput.value = "";
+    makeInput.value = "";
+    modelInput.value = "";
+    colourInput.value = "";
+    ownerInput.value = "";
+    personidInput.value = "";
+    nameInput.value = "";
+    addressInput.value = "";
+    dobInput.value = "";
+    licenseInput.value = "";
+    expireInput.value = "";
 }
