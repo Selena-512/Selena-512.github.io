@@ -70,3 +70,10 @@ form {
     padding: 2px;
     margin: 2px;
 }
+
+.resultscontainer{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin: 10px;
+    padding: 10px;
+}
