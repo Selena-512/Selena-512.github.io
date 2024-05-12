@@ -30,11 +30,11 @@ function people(p) {
     const newDiv  = document.createElement('div');
     newDiv.setAttribute('PersonID', p.PersonID);
     newDiv.innerHTML = 
-        "personid: " + p.PersonID + 
-        "name: " + p.Name + 
-        "address: " + p.Address +
-        "dob: " + p.DOB + 
-        "licensenumber: " + p.LicenseNumber +
+        "personid: " + p.PersonID + "<br />" +
+        "name: " + p.Name + "<br />" +
+        "address: " + p.Address + "<br />" +
+        "dob: " + p.DOB + "<br />" + 
+        "licensenumber: " + p.LicenseNumber + "<br />" +
         "expirydate: " + p.ExpiryDate;
     resultsDiv.appendChild(newDiv)
 }
