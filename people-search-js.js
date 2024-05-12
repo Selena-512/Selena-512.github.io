@@ -14,26 +14,37 @@ const resultsDiv = document.getElementById("results");
 const submitBtn = document.getElementById("submit");
 submitBtn.addEventListener("click", submit);
 
+// submit button function
 async function submit(){
-    searchLicenseNumber(licenseInput.value)
+    if(licenseInput.value == ""){
+        msgDiv.innerHTML += "Error, please first enter a driving license number.";
+    }
+    else{
+        searchLicenseNumber(licenseInput.value);
+    }
+    
 }
 
-
-//license number input
+// search people by input license number 
 async function searchLicenseNumber(license) {
     const { data, error} = await supabase
         .from('People')
         .select('*')
         .eq('LicenseNumber', license);
     console.log('fetched data:', data);
-    msgDiv.innerHTML += "license number [" + license + "] search success";
+    if(data.length > 0){
+        msgDiv.innerHTML += "license number [" + license + "] search success";
+    }
+    else{
+        msgDiv.innerHTML += "license number [" + license + "] No result found";
+    }
     data.forEach(function(p){
         people(p);
     });
     resultsDiv.style.border ="1px dashed black";
 }
 
-// create div for a searched result
+// create div element to store the searched result and append to results div
 function people(p) {
     const newDiv  = document.createElement('div');
     newDiv.setAttribute('PersonID', p.PersonID);
