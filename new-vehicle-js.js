@@ -26,7 +26,15 @@ const addOwnerBtn = document.getElementById("addowner");
 //addOwnerBtn.addEventListener("click", submit);
 
 async function addVehicle(){
-    const { error } = await supabase
+    clearBox("message");
+    
+    if(regoInput.value=="" || makeInput.value=="" || modelInput.value=="" || colourInput.value=="" || ownerInput.value==""){
+        msgDiv.innerHTML += "Error, one or more fields of new vehicle details are missing"
+    }
+    else{
+        // supabase tables need RLS Row Level Security disabled
+        // or cannot do insert
+        const { error } = await supabase
         .from('Vehicles')
         .insert({ 
             VehicleID: regoInput.value,
@@ -35,5 +43,15 @@ async function addVehicle(){
             Colour: colourInput.value,
             OwnerID: ownerInput.value
         });
-    msgDiv.innerHTML += "[" + regoInput.value +"] Vehicle added successfully"
+        if(error2){
+            msgDiv.innerHTML += "Error at add new vehicle...<br />plz retry";
+        }
+        else{
+            msgDiv.innerHTML += "[" + regoInput.value +"] Vehicle added successfully"
+        }
+    }
+}
+
+function clearBox(elementID){
+    document.getElementById(elementID).innerHTML = "";
 }
