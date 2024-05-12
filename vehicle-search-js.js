@@ -43,10 +43,10 @@ async function searchRegistrationNumber(regNum) {
         msgDiv.innerHTML += "registration number [" + regNum + "] No result found";
     }
     // loop to create each searched and founded people as a block
-    data.forEach(function(p){
+    data.forEach(function(v){
         vehicle(v);
     });
-    resultsDiv.style.border ="1px dashed blacwwwwwwwwwwwwwwwwk";
+    resultsDiv.style.border ="1px dashed black";
 }
 
 // create div element to store the searched person details and append to results div
