@@ -32,22 +32,38 @@ async function addVehicle(){
         msgDiv.innerHTML += "Error, one or more fields of new vehicle details are missing"
     }
     else{
-        // supabase tables need RLS Row Level Security disabled
-        // or cannot do insert
-        const { error } = await supabase
-        .from('Vehicles')
-        .insert({ 
-            VehicleID: regoInput.value,
-            Make: makeInput.value,
-            Model: modelInput.value,
-            Colour: colourInput.value,
-            OwnerID: ownerInput.value
-        });
-        if(error){
-            msgDiv.innerHTML += "Error at add new vehicle...<br />plz retry";
+        let personid = "";
+        // first search if name at owner input is already in db or not 
+        const {data, error} = await supabase
+            .from('People')
+            .select('*')
+            .eq('Name', ownerInput.value);
+        console.log(data);
+        if(data[0] != null){       // owner name has record
+            console.log("data[0].PersonID = " + data[0].PersonID)
+            personid = String(data[0].PersonID);
+
+            // supabase tables need RLS Row Level Security disabled
+            // or cannot do insert
+            const { error2 } = await supabase
+            .from('Vehicles')
+            .insert({ 
+                VehicleID: regoInput.value,
+                Make: makeInput.value,
+                Model: modelInput.value,
+                Colour: colourInput.value,
+                OwnerID: personid
+            });
+            if(error2){
+                msgDiv.innerHTML += "Error at add new vehicle...<br />plz retry";
+            }
+            else{
+                msgDiv.innerHTML += "[" + regoInput.value +"] Vehicle added successfully"
+            }
         }
-        else{
-            msgDiv.innerHTML += "[" + regoInput.value +"] Vehicle added successfully"
+        else{   // owner name is new, not in record
+            msgDiv.innerHTML += "[" + ownerInput.value + "] owner is not in database <br />" +
+                "need fill in New Owner Information";
         }
     }
 }
