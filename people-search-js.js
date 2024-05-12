@@ -9,7 +9,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 const nameInput = document.getElementById("name");
 const licenseInput = document.getElementById("license");
 const msgDiv = document.getElementById("message");
-const resultDiv = documment.getElementById("result");
+const resultDiv = documment.getElementById("results");
 
 const submitBtn = document.getElementById("submit");
 submitBtn.addEventListener("click", fetchData);
