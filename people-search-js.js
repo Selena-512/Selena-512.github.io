@@ -39,7 +39,7 @@ async function searchDriverName(name){
     const {data, error} = await supabase
         .from('People')
         .select('*')
-        .eq('Name', name);
+        .ilike('Name', '%'+name+'%');
     console.log('Fetched data:', data);
     // condition check for showing the correct response message
     if(data.length > 0){
