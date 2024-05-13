@@ -38,7 +38,7 @@ async function searchRegistrationNumber(regNum) {
     console.log('fetched data:', data);
     // condition check for showing the correct response message
     if(data.length > 0){
-        msgDiv.innerHTML += "registration number [" + regNum + "] search success";
+        msgDiv.innerHTML += "registration number [" + regNum + "] Search successful";
     }
     else{
         msgDiv.innerHTML += "registration number [" + regNum + "] No result found";
