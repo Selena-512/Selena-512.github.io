@@ -22,7 +22,6 @@ header {
 .navbar ul{
     display: flex; 
     justify-content: space-around;
-    align-content: center;
     list-style-type: none;
 }
 
@@ -81,4 +80,22 @@ form {
 .formcontainer{
     display: grid;
     grid-template-columns: auto auto;
+}
+
+@media screen and (max-width: 500px) {
+    .navbar ul{
+        list-style-type: none;
+    }
+
+    body {
+        background-color:rgb(30, 30, 73);
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        grid-template-rows: auto auto 1fr;
+        grid-template-areas:
+            "header header"
+            "main main"
+            "sidebar footer";
+        height: 100vh;
+    }
 }
