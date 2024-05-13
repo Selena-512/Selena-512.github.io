@@ -14,9 +14,9 @@ header {
     grid-area: header;
     background-color: rgb(209, 231, 239);
     align-self: center;
-    border: 5px solid white;
-    padding: 7px;
-    margin: 2px;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
 }
 
 .navbar ul{
@@ -34,25 +34,25 @@ header {
 main {
     grid-area: main;
     background-color: rgb(209, 231, 239);;
-    border: 5px solid white;
+    border: 1px solid black;
     padding: 10px;
-    margin: 2px;
+    margin: 10px;
 }
 
 aside {
     grid-area: sidebar;
     background-color: rgb(209, 231, 239);;
-    border: 5px solid white;
-    padding: 5px;
-    margin: 2px;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
 }
 
 footer {
     grid-area: footer;
     background-color: rgb(209, 231, 239);
-    border: 5px solid white;
-    padding: 5px;
-    margin: 2px;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
 }
 
 input,
