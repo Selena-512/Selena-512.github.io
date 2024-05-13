@@ -65,7 +65,7 @@ async function searchLicenseNumber(license) {
     console.log('fetched data:', data);
     // condition check for showing the correct response message
     if(data.length > 0){
-        msgDiv.innerHTML += "license number [" + license + "] search success";
+        msgDiv.innerHTML += "license number [" + license + "] Search successful";
     }
     else{
         msgDiv.innerHTML += "license number [" + license + "] No result found";
