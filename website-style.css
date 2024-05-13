@@ -109,8 +109,13 @@ img {
             "sidebar footer";
     }
 
-    aside,
     main {
-        height: 100vh;
+        height: 100%;
+    }
+
+    header,
+    aside,
+    footer {
+        height: auto;
     }
 }
