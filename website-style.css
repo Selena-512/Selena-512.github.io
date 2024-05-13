@@ -55,6 +55,7 @@ footer {
     margin: 2px;
 }
 
+input,
 button {
     font-size: 24px;
     margin-left: 10px;
