@@ -55,6 +55,11 @@ footer {
     margin: 2px;
 }
 
+button {
+    font-size: 24px;
+    margin-left: 10px;
+}
+
 h1 {
     color: navy;
     font-size: 3em;
