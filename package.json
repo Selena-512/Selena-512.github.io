@@ -1,0 +1,22 @@
+{
+  "name": "selena-512.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "new-vehicle-js.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Selena-512/Selena-512.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Selena-512/Selena-512.github.io/issues"
+  },
+  "homepage": "https://github.com/Selena-512/Selena-512.github.io#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "@types/node": "^20.12.12"
+  }
+}

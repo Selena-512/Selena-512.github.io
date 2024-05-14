@@ -9,6 +9,7 @@ All other pages also have a score of 100 for accessibility.
 ![people accessiblity img](images/people-accessibility.png)
 ![vehicle accessiblity img](images/vehicle-accessibility.png)
 ![add vehicle accessiblity img](images/add-accessibility.png)\
+To achieve good accessibility, I have added alternative text for images. Another issue was that touch targets did not have sufficient size or spacing, which I solved by setting them to be 24px. (website-style.css, line 59-62)
 All HTML requirements have also been met. 
 
 ## Responsiveness
@@ -23,6 +24,13 @@ This also works for the other pages of the website.
 ![Responsiveness img](images/add-responsiveness.png.png)
 
 ## Playwright tests
+
+## Database
+View is used in supabase for the vehicle search, and the SQL is shown in the below image. This is to account for cases where there is a car entry but not a corresponding owner in the people database. Left join will allow a field in the vehicle table with a null value to show.
+![search table](images/search-table.png)
+![search sql](images/search-sql.png)
+
+For both People and Vehicle table, the RLS row level security is turned off, as new db inserts could not be done when it is turned on.
 
 ## 404 page
 An additional custom 404 page was created, which contains nav links for the user to navigate back to the correct pages of the site. This can be seen in the 404.html.
