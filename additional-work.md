@@ -24,11 +24,18 @@ This also works for the other pages of the website.
 ![Responsiveness img](images/add-responsiveness.png.png)
 
 ## Playwright tests
+I have written Playwright tests based on the PDF (page 8 and 9) requirements. For add vehicle test case 1 and 2, playwright will click the vehicle search page and search for the newly addded registration number.
+Below is the list of playwright tests. All have been passed.
+![Playwright tests img](images/playwright.png)
+And for adding vehicle test cases, this is the result in the database.
+![Playwright database img](images/playwright-db1.png)
+![Playwright database img 2](images/playwright-db2.png)
+
 
 ## Database
 View is used in supabase for the vehicle search, and the SQL is shown in the below image. This is to account for cases where there is a car entry but not a corresponding owner in the people database. Left join will allow a field in the vehicle table with a null value to show.
-![search table](images/search-table.png)
-![search sql](images/search-sql.png)
+![search table img](images/search-table.png)
+![search sql img](images/search-sql.png)
 
 For both People and Vehicle table, the RLS row level security is turned off, as new db inserts could not be done when it is turned on.
 
