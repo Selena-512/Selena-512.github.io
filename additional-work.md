@@ -24,7 +24,8 @@ This also works for the other pages of the website.
 ![Responsiveness img](images/add-responsiveness.png.png)
 
 ## Playwright tests
-I have written Playwright tests based on the PDF (page 8 and 9) requirements. For add vehicle test case 1 and 2, playwright will click the vehicle search page and search for the newly addded registration number.
+I have written Playwright tests based on the PDF (page 8 and 9) requirements, such as page headings being h1 with the specific text, navigation link test for the correct text, all page sections having the correct css format, and tests for the javascript functions in both people and vehicle searches. Situations that are also covered are: clicking submit button but with empty fields or all search fields full, searching for something that is not in database, etc.\
+For add vehicle test case 1 and 2, playwright will click the vehicle search page and search for the newly addded registration number.
 Below is the list of playwright tests. All have been passed.
 ![Playwright tests img](images/playwright.png)
 And for adding vehicle test cases, this is the result in the database.
